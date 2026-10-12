@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "task": {
+    "name": "devfellowship/split-evenly",
+    "version": "1",
+    "description": "Money split that loses the remainder: the shares must add up to the total.",
+    "authors": [{ "name": "DevFellowship" }],
+    "keywords": ["typescript", "money"]
+  },
+  "metadata": {
+    "title": "Split money without losing a cent",
+    "tags": { "tools": ["vitest"], "concepts": ["money-math"] }
+  },
+  "instruction": "instruction.md",
+  "environment": {
+    "dir": "environment",
+    "install": ["npm", "ci", "--include=dev", "--no-audit", "--no-fund", "--ignore-scripts"],
+    "allow_internet": false
+  },
+  "tests": { "public": "tests/public", "hidden": "tests/hidden" },
+  "solution": { "patch": "solution/solution.patch" },
+  "editable_paths": ["src/**"],
+  "protected_paths": ["tests/**", "package.json", "package-lock.json", "tsconfig.json", "vitest.config.*"],
+  "verifier": {
+    "cmd": ["npx", "vitest", "run", "{tests}", "--reporter=json", "--outputFile={report}"],
+    "report": "vitest-json",
+    "timeout_sec": 60
+  },
+  "agent": { "timeout_sec": 300 },
+  "est_minutes": 2
+}
